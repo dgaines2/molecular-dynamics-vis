@@ -21,28 +21,28 @@ function makeLine( geo ) {
 function drawScene(){
 
     tdata = params.data.filter(d => d.time == params.time) 
-	// clear everything first
-	while (params.scene.children.length > 0){ 
-		params.scene.remove(params.scene.children[0]); 
-	}
+    // clear everything first
+    while (params.scene.children.length > 0){ 
+        params.scene.remove(params.scene.children[0]); 
+    }
 
-	
-	// define the colormap
-	params.colorMap = params.colorMapOptions[params.colorMapIndex];
-	cmap = d3.scaleSequential(params.colorMap);
-	var extent = [params.colorMapMin, params.colorMapMax];
-	cmap.domain(extent).nice();
+    
+    // define the colormap
+    params.colorMap = params.colorMapOptions[params.colorMapIndex];
+    cmap = d3.scaleSequential(params.colorMap);
+    var extent = [params.colorMapMin, params.colorMapMax];
+    cmap.domain(extent).nice();
 
     // define material
-	var materialParams = {size: params.size,
-						  map: params.sprite, 
-						  transparent: true, 
+    var materialParams = {size: params.size,
+                          map: params.sprite, 
+                          transparent: true, 
                           opacity: 0.90,
                           vertexColors: THREE.VertexColors,
                           depthWrite: false, 
                           depthTest: false,
                           alphaTest: 0.2};
-	var material = new THREE.PointsMaterial( materialParams );
+    var material = new THREE.PointsMaterial( materialParams );
 
     // add each molecule to scene
     var group_i;

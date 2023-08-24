@@ -1,39 +1,39 @@
 //this initializes everything needed for the scene
 function init(){
 
-	var screenWidth = window.innerWidth;
-	var screenHeight = window.innerHeight;
-	var aspect = screenWidth / screenHeight;
+    var screenWidth = window.innerWidth;
+    var screenHeight = window.innerHeight;
+    var aspect = screenWidth / screenHeight;
 
-	// renderer
-	params.renderer = new THREE.WebGLRenderer( {
-		antialias: true,
+    // renderer
+    params.renderer = new THREE.WebGLRenderer( {
+        antialias: true,
         premultipliedAlpha: false 
-	} );
-	params.renderer.setSize(screenWidth, screenHeight);
+    } );
+    params.renderer.setSize(screenWidth, screenHeight);
 
-	params.container = document.getElementById('WebGLContainer');
-	params.container.appendChild( params.renderer.domElement );
+    params.container = document.getElementById('WebGLContainer');
+    params.container.appendChild( params.renderer.domElement );
 
-	// scene
-	params.scene = new THREE.Scene();     
+    // scene
+    params.scene = new THREE.Scene();     
 
-	// camera
-	params.camera = new THREE.PerspectiveCamera( params.fov, aspect, params.zmin, params.zmax);
-	params.camera.position.z = 150;
-	params.scene.add(params.camera);  
+    // camera
+    params.camera = new THREE.PerspectiveCamera( params.fov, aspect, params.zmin, params.zmax);
+    params.camera.position.z = 150;
+    params.scene.add(params.camera);  
 
-	// events
-	THREEx.WindowResize(params.renderer, params.camera);
+    // events
+    THREEx.WindowResize(params.renderer, params.camera);
 
-	//controls
-	params.controls = new THREE.TrackballControls( params.camera, params.renderer.domElement );
+    //controls
+    params.controls = new THREE.TrackballControls( params.camera, params.renderer.domElement );
 }
 
 //this is the animation loop
 var i = 0
 function animate(time) {
-	requestAnimationFrame(animate);
+    requestAnimationFrame(animate);
     if (params.incrementIndex == 1) {
         i = i + 1 
         if (params.time <= 49000) {
@@ -44,8 +44,8 @@ function animate(time) {
         drawScene();
         populateScatter(params.scatterx, params.scattery, params.time)
     };
-	params.controls.update();
-	params.renderer.render( params.scene, params.camera );
+    params.controls.update();
+    params.renderer.render( params.scene, params.camera );
 }
 
 
@@ -53,16 +53,16 @@ function animate(time) {
 function WebGLStart(){
 
 //initialize everything
-	init();
+    init();
 
 //create the UI
-	createUI();
+    createUI();
 
 //draw everything
-	drawScene();
+    drawScene();
 
 //begin the animation
-	animate();
+    animate();
 
 //draw scatter
     makeScatter();
