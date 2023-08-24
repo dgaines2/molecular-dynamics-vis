@@ -2,6 +2,11 @@
 
 Live link: [https://dgaines2.github.io/molecular-dynamics-vis/](https://dgaines2.github.io/molecular-dynamics-vis/)
 
+How to control the view:
+* Click and drag to rotate
+* Scroll to zoom
+* Click and drag while holding the d key to pan
+
 ## Scientific Background
 
 Molecular dynamics (MD) is a computational method to simulation the
@@ -51,4 +56,7 @@ website to understand what this simulation shows without needed to look
 for information elsewhere.  The code is also made available, so with minor
 tweaks, the website would allow for easy visualization of other MD runs.
 
+### Note
+*The WebGL renderer has problems in Safari on M1 Macs. I recommend using
+Firefox or Chrome for the best performance.*
 
